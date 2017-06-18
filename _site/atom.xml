@@ -4,13 +4,115 @@
  <title>Lanyon</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-06-17T22:11:51-03:00</updated>
+ <updated>2017-06-17T22:37:39-03:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Mark Otto</name>
    <email>markdotto@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Servidores</title>
+   <link href="http://localhost:4000/2017/06/17/servidores/"/>
+   <updated>2017-06-17T00:00:00-03:00</updated>
+   <id>http://localhost:4000/2017/06/17/servidores</id>
+   <content type="html">&lt;h1 id=&quot;servidores&quot;&gt;Servidores&lt;/h1&gt;
+&lt;h6 id=&quot;por-lincon-dias&quot;&gt;por Lincon Dias.&lt;/h6&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Em informática, um servidor é um software ou computador, com sistema de computação centralizada que fornece serviços a uma rede de computadores, chamada de cliente.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h6 id=&quot;wikipedia&quot;&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/VirtualBox&quot;&gt;Wikipedia&lt;/a&gt;&lt;/h6&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;preparando-a-o-ambiente&quot;&gt;Preparando a o ambiente&lt;/h2&gt;
+
+&lt;h3 id=&quot;instalando-o-virtualbox&quot;&gt;Instalando o VirtualBox&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;VirtualBox é um software de virtualização que visa criar ambientes para instalação de sistemas distintos. Ele permite a instalação e utilização de um sistema operacional dentro de outro, assim como seus respectivos softwares, como dois ou mais computadores independentes, mas compartilhando fisicamente o mesmo hardware.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h6 id=&quot;wikipedia-1&quot;&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/VirtualBox&quot;&gt;Wikipedia&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;Vamos utilizar o virtualbox para simular os nossos serviços rodando em um servidor, para isso baixe o versão para o seu sistema nesse
+&lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;instalando-o-ubuntu&quot;&gt;Instalando o Ubuntu&lt;/h3&gt;
+&lt;p&gt;O Ubuntu fornece uma distro focada em servidores que pode ser baixada &lt;a href=&quot;https://www.ubuntu.com/download/server&quot;&gt;aqui&lt;/a&gt;.
+Depois de baixar é preciso criar uma nova máquina virtual no VBox e adicionar a imagem (.img) na controladora de disco e seguir as intruções para a instalação no disco rígido virtual.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;conhecendo-um-pouco-das-ferramentas&quot;&gt;Conhecendo um pouco das ferramentas&lt;/h2&gt;
+
+&lt;h3 id=&quot;ssh-a-telinha-preta&quot;&gt;SSH, a telinha preta&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Secure Shell (SSH) é um protocolo de rede criptográfico para operação de serviços de rede de forma segura sobre uma rede insegura.[1] A &lt;strong&gt;melhor aplicação&lt;/strong&gt; de exemplo conhecida é para &lt;strong&gt;login remoto a sistemas de computadores&lt;/strong&gt; pelos usuários.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h6 id=&quot;wikipedia-2&quot;&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Secure_Shell&quot;&gt;Wikipedia&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;O SSH permite o acesso remoto a shell do servidor e através dela instalamos novos serviços, atualizamos e damos manutenção na máquina. Ele é a nossa principal ferramenta.&lt;/p&gt;
+
+&lt;p&gt;Para conectar no ssh do nosso servidor podemos executar o comando&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	ssh -p &amp;lt;porta&amp;gt; &amp;lt;usuario&amp;gt;@&amp;lt;dominio&amp;gt;
+```. 
+Exemplo,
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh -p 22 lincon@level5jr.com.br ``` Lembrando que **não** é necessario acrescentar o __-p__ se a porta for a **padrão(22)**, mas como somos pessoas sensatas, não utilizamos a porta padrão por questões de segurança.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;vim-o-editor-para-hipsters&quot;&gt;Vim, o editor para hipsters&lt;/h3&gt;
+
+&lt;p&gt;O Vim(Vi iMproved) é um &lt;strong&gt;editor de textos&lt;/strong&gt; que &lt;strong&gt;não&lt;/strong&gt; requer modo gráfico, perfeito para utilizar em um sessão &lt;strong&gt;SSH&lt;/strong&gt;. Levando em conta que a maioria dos serviços rodando em servidores utilizam &lt;strong&gt;arquivos de configuração&lt;/strong&gt;, o vim é uma importante ferramenta que é utilizada junto ao SSH para configurar e subir serviços no servidor.&lt;/p&gt;
+
+&lt;p&gt;Para abrir um arquivo com o vim utilizamos o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;vim arquivo&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Os homens sem fé costumam utilizar o &lt;strong&gt;nano&lt;/strong&gt;, que também é uma opção.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;navegando-pelo-sistema&quot;&gt;Navegando pelo sistema&lt;/h2&gt;
+&lt;h3 id=&quot;diretórios-e-arquivos&quot;&gt;Diretórios e arquivos&lt;/h3&gt;
+
+&lt;p&gt;Um dos comandos mais básicos que temos é o &lt;code class=&quot;highlighter-rouge&quot;&gt;ls&lt;/code&gt;, que lista todos os arquivos e diretórios do caminho atual(que pode ser checado com &lt;code class=&quot;highlighter-rouge&quot;&gt;pwd&lt;/code&gt;), porém, para visualizar os arquivos de um forma mais interessante utilizamos os argumentos &lt;strong&gt;-lah&lt;/strong&gt; que lista os arquivos em uma forma de lista, além de mostar o tamanho de uma forma visível, as permissões e o dono do arquivo(algo muito importante para os serviços funcionarem de forma correta) e também os arquivos ocultos(que começam com .) Então o comando fica:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	ls -lah
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Para navegação dentro dos diretórios do servidor utilizamos o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;cd nome_da_pasta&lt;/code&gt;, lembrando que o caminho pode ser composto, exemplo, &lt;code class=&quot;highlighter-rouge&quot;&gt;cd /home/lincon/public_html&lt;/code&gt;. Para autocompletar caminhos podemos utilizar a tecla &lt;strong&gt;TAB&lt;/strong&gt; enquanto digitamos parte do nome do diretório.&lt;/p&gt;
+
+&lt;h3 id=&quot;pemissões-e-donos&quot;&gt;Pemissões e donos&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;NUNCA, NUNCA FAÇA &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod 777 arquivo&lt;/code&gt;!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://photos1.blogger.com/blogger/862/3613/1600/perm.png&quot; alt=&quot;Permissões&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As permissões criam cenários para que todos os serviços executem somente onde precisam. Se tratando de um servidor onde ele possue pastas publicas(como por exemplo pastas com arquivos de um site), as permissões impede que arquivos indesejados executem no servidor.&lt;/p&gt;
+
+&lt;p&gt;Para mudar as permissões utilizamos o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod &amp;lt;permissoes&amp;gt; &amp;lt;arquivo&amp;gt;&lt;/code&gt;, e para alterar o dono &lt;code class=&quot;highlighter-rouge&quot;&gt;chown &amp;lt;usuario&amp;gt;.&amp;lt;grupo&amp;gt; &amp;lt;arquivo&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;os-fundamentais&quot;&gt;Os fundamentais&lt;/h2&gt;
+&lt;h3 id=&quot;leia-a--do-manual&quot;&gt;Leia a *$#! do manual!&lt;/h3&gt;
+
+&lt;p&gt;O linux possui um manual para quase tudo! Tá em dúvida do que um comando faz? Ou esqueceu como usar um programa? Leia o manual! Para isso é só executar &lt;code class=&quot;highlighter-rouge&quot;&gt;man &amp;lt;comando&amp;gt;&lt;/code&gt; ou man &lt;code class=&quot;highlighter-rouge&quot;&gt;man -k &amp;lt;comando&amp;gt;&lt;/code&gt; para buscar algum comando no manual.&lt;/p&gt;
+
+&lt;h2 id=&quot;systemctl&quot;&gt;systemctl&lt;/h2&gt;
+
+&lt;p&gt;Como quase tudo que roda no servidor são serviços, ninguém melhor para cuidar disso do que um gerenciador de serviços, lhes apresento o bom e velho: systemctl&lt;br /&gt;
+Os comandos básicos são:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	systemctl start &amp;lt;servico&amp;gt;
+	systemctl restart &amp;lt;servico&amp;gt;
+	systemctl stop &amp;lt;servico&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;aptitude&quot;&gt;aptitude&lt;/h2&gt;
+
+&lt;p&gt;Nem sempre o que precisamos já está instalado no servidor, logo precisamos fazer o trabalho sujo&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Introducing Lanyon</title>

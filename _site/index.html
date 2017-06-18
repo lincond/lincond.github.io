@@ -96,6 +96,112 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="//2017/06/17/servidores/">
+        Servidores
+      </a>
+    </h1>
+
+    <span class="post-date">17 Jun 2017</span>
+
+    <h1 id="servidores">Servidores</h1>
+<h6 id="por-lincon-dias">por Lincon Dias.</h6>
+<blockquote>
+  <p>Em informática, um servidor é um software ou computador, com sistema de computação centralizada que fornece serviços a uma rede de computadores, chamada de cliente.</p>
+</blockquote>
+
+<h6 id="wikipedia"><a href="https://pt.wikipedia.org/wiki/VirtualBox">Wikipedia</a></h6>
+
+<hr />
+
+<h2 id="preparando-a-o-ambiente">Preparando a o ambiente</h2>
+
+<h3 id="instalando-o-virtualbox">Instalando o VirtualBox</h3>
+<blockquote>
+  <p>VirtualBox é um software de virtualização que visa criar ambientes para instalação de sistemas distintos. Ele permite a instalação e utilização de um sistema operacional dentro de outro, assim como seus respectivos softwares, como dois ou mais computadores independentes, mas compartilhando fisicamente o mesmo hardware.</p>
+</blockquote>
+
+<h6 id="wikipedia-1"><a href="https://pt.wikipedia.org/wiki/VirtualBox">Wikipedia</a></h6>
+
+<p>Vamos utilizar o virtualbox para simular os nossos serviços rodando em um servidor, para isso baixe o versão para o seu sistema nesse
+<a href="https://www.virtualbox.org/wiki/Downloads">link</a>.</p>
+
+<h3 id="instalando-o-ubuntu">Instalando o Ubuntu</h3>
+<p>O Ubuntu fornece uma distro focada em servidores que pode ser baixada <a href="https://www.ubuntu.com/download/server">aqui</a>.
+Depois de baixar é preciso criar uma nova máquina virtual no VBox e adicionar a imagem (.img) na controladora de disco e seguir as intruções para a instalação no disco rígido virtual.</p>
+
+<hr />
+<h2 id="conhecendo-um-pouco-das-ferramentas">Conhecendo um pouco das ferramentas</h2>
+
+<h3 id="ssh-a-telinha-preta">SSH, a telinha preta</h3>
+<blockquote>
+  <p>Secure Shell (SSH) é um protocolo de rede criptográfico para operação de serviços de rede de forma segura sobre uma rede insegura.[1] A <strong>melhor aplicação</strong> de exemplo conhecida é para <strong>login remoto a sistemas de computadores</strong> pelos usuários.</p>
+</blockquote>
+
+<h6 id="wikipedia-2"><a href="https://pt.wikipedia.org/wiki/Secure_Shell">Wikipedia</a></h6>
+
+<p>O SSH permite o acesso remoto a shell do servidor e através dela instalamos novos serviços, atualizamos e damos manutenção na máquina. Ele é a nossa principal ferramenta.</p>
+
+<p>Para conectar no ssh do nosso servidor podemos executar o comando</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	ssh -p &lt;porta&gt; &lt;usuario&gt;@&lt;dominio&gt;
+```. 
+Exemplo,
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>ssh -p 22 lincon@level5jr.com.br ``` Lembrando que **não** é necessario acrescentar o __-p__ se a porta for a **padrão(22)**, mas como somos pessoas sensatas, não utilizamos a porta padrão por questões de segurança.
+</code></pre>
+</div>
+
+<h3 id="vim-o-editor-para-hipsters">Vim, o editor para hipsters</h3>
+
+<p>O Vim(Vi iMproved) é um <strong>editor de textos</strong> que <strong>não</strong> requer modo gráfico, perfeito para utilizar em um sessão <strong>SSH</strong>. Levando em conta que a maioria dos serviços rodando em servidores utilizam <strong>arquivos de configuração</strong>, o vim é uma importante ferramenta que é utilizada junto ao SSH para configurar e subir serviços no servidor.</p>
+
+<p>Para abrir um arquivo com o vim utilizamos o comando <code class="highlighter-rouge">vim arquivo</code>.</p>
+
+<p>Os homens sem fé costumam utilizar o <strong>nano</strong>, que também é uma opção.</p>
+
+<hr />
+<h2 id="navegando-pelo-sistema">Navegando pelo sistema</h2>
+<h3 id="diretórios-e-arquivos">Diretórios e arquivos</h3>
+
+<p>Um dos comandos mais básicos que temos é o <code class="highlighter-rouge">ls</code>, que lista todos os arquivos e diretórios do caminho atual(que pode ser checado com <code class="highlighter-rouge">pwd</code>), porém, para visualizar os arquivos de um forma mais interessante utilizamos os argumentos <strong>-lah</strong> que lista os arquivos em uma forma de lista, além de mostar o tamanho de uma forma visível, as permissões e o dono do arquivo(algo muito importante para os serviços funcionarem de forma correta) e também os arquivos ocultos(que começam com .) Então o comando fica:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	ls -lah
+</code></pre>
+</div>
+<p>Para navegação dentro dos diretórios do servidor utilizamos o comando <code class="highlighter-rouge">cd nome_da_pasta</code>, lembrando que o caminho pode ser composto, exemplo, <code class="highlighter-rouge">cd /home/lincon/public_html</code>. Para autocompletar caminhos podemos utilizar a tecla <strong>TAB</strong> enquanto digitamos parte do nome do diretório.</p>
+
+<h3 id="pemissões-e-donos">Pemissões e donos</h3>
+<p><strong>NUNCA, NUNCA FAÇA <code class="highlighter-rouge">chmod 777 arquivo</code>!</strong></p>
+
+<p><img src="http://photos1.blogger.com/blogger/862/3613/1600/perm.png" alt="Permissões" /></p>
+
+<p>As permissões criam cenários para que todos os serviços executem somente onde precisam. Se tratando de um servidor onde ele possue pastas publicas(como por exemplo pastas com arquivos de um site), as permissões impede que arquivos indesejados executem no servidor.</p>
+
+<p>Para mudar as permissões utilizamos o comando <code class="highlighter-rouge">chmod &lt;permissoes&gt; &lt;arquivo&gt;</code>, e para alterar o dono <code class="highlighter-rouge">chown &lt;usuario&gt;.&lt;grupo&gt; &lt;arquivo&gt;</code></p>
+
+<hr />
+<h2 id="os-fundamentais">Os fundamentais</h2>
+<h3 id="leia-a--do-manual">Leia a *$#! do manual!</h3>
+
+<p>O linux possui um manual para quase tudo! Tá em dúvida do que um comando faz? Ou esqueceu como usar um programa? Leia o manual! Para isso é só executar <code class="highlighter-rouge">man &lt;comando&gt;</code> ou man <code class="highlighter-rouge">man -k &lt;comando&gt;</code> para buscar algum comando no manual.</p>
+
+<h2 id="systemctl">systemctl</h2>
+
+<p>Como quase tudo que roda no servidor são serviços, ninguém melhor para cuidar disso do que um gerenciador de serviços, lhes apresento o bom e velho: systemctl<br />
+Os comandos básicos são:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	systemctl start &lt;servico&gt;
+	systemctl restart &lt;servico&gt;
+	systemctl stop &lt;servico&gt;
+</code></pre>
+</div>
+
+<h2 id="aptitude">aptitude</h2>
+
+<p>Nem sempre o que precisamos já está instalado no servidor, logo precisamos fazer o trabalho sujo</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="//2014/01/02/introducing-lanyon/">
         Introducing Lanyon
       </a>
