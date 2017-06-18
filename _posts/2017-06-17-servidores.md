@@ -48,7 +48,10 @@ Lembrando que **não** é necessario acrescentar o __-p__ se a porta for a **pad
 
 O Vim(Vi iMproved) é um **editor de textos** que **não** requer modo gráfico, perfeito para utilizar em um sessão **SSH**. Levando em conta que a maioria dos serviços rodando em servidores utilizam **arquivos de configuração**, o vim é uma importante ferramenta que é utilizada junto ao SSH para configurar e subir serviços no servidor.
 
-Para abrir um arquivo com o vim utilizamos o comando ~~~vim arquivo~~~.  
+Para abrir um arquivo com o vim utilizamos o comando 
+~~~
+	vim arquivo
+~~~  
 
 Os homens sem fé costumam utilizar o **nano**, que também é uma opção.
 
@@ -56,11 +59,27 @@ Os homens sem fé costumam utilizar o **nano**, que também é uma opção.
 ## Navegando pelo sistema
 ### Diretórios e arquivos
 
-Um dos comandos mais básicos que temos é o ~~~ls~~~, que lista todos os arquivos e diretórios do caminho atual(que pode ser checado com ~~~pwd~~~), porém, para visualizar os arquivos de um forma mais interessante utilizamos os argumentos __-lah__ que lista os arquivos em uma forma de lista, além de mostar o tamanho de uma forma visível, as permissões e o dono do arquivo(algo muito importante para os serviços funcionarem de forma correta) e também os arquivos ocultos(que começam com .) Então o comando fica: 
+Um dos comandos mais básicos que temos é o 
+~~~ 
+	ls 
+~~~
+, que lista todos os arquivos e diretórios do caminho atual(que pode ser checado com 
+~~~
+	pwd
+~~~
+), porém, para visualizar os arquivos de um forma mais interessante utilizamos os argumentos __-lah__ que lista os arquivos em uma forma de lista, além de mostar o tamanho de uma forma visível, as permissões e o dono do arquivo(algo muito importante para os serviços funcionarem de forma correta) e também os arquivos ocultos(que começam com .) Então o comando fica: 
 ~~~
 	ls -lah
 ~~~  
-Para navegação dentro dos diretórios do servidor utilizamos o comando ~~~cd nome_da_pasta~~~, lembrando que o caminho pode ser composto, exemplo, ~~~cd /home/lincon/public_html~~~. Para autocompletar caminhos podemos utilizar a tecla **TAB** enquanto digitamos parte do nome do diretório. 
+Para navegação dentro dos diretórios do servidor utilizamos o comando 
+~~~
+	cd nome_da_pasta
+~~~  
+, lembrando que o caminho pode ser composto, exemplo, 
+~~~
+	cd /home/lincon/public_html
+~~~   
+Para autocompletar caminhos podemos utilizar a tecla **TAB** enquanto digitamos parte do nome do diretório. 
 
 ### Pemissões e donos
 **NUNCA, NUNCA FAÇA ~~~chmod 777 arquivo~~~!**  
@@ -69,13 +88,29 @@ Para navegação dentro dos diretórios do servidor utilizamos o comando ~~~cd n
 
 As permissões criam cenários para que todos os serviços executem somente onde precisam. Se tratando de um servidor onde ele possue pastas publicas(como por exemplo pastas com arquivos de um site), as permissões impede que arquivos indesejados executem no servidor. 
 
-Para mudar as permissões utilizamos o comando ~~~chmod <permissoes> <arquivo>~~~, e para alterar o dono ~~~chown <usuario>.<grupo> <arquivo>~~~ 
+Para mudar as permissões utilizamos o comando
+~~~
+	chmod <permissoes> <arquivo>
+~~~
+, e para alterar o dono 
+~~~
+	chown <usuario>.<grupo> <arquivo>
+~~~ 
+Para executar a troca de dono dos subdiretórios e arquivos utilize a opção recursiva: ** -R **.
 
 ----
 ## Os fundamentais
 ### Leia a *$#! do manual!
 
-O linux possui um manual para quase tudo! Tá em dúvida do que um comando faz? Ou esqueceu como usar um programa? Leia o manual! Para isso é só executar ~~~man <comando>~~~ ou man ~~~man -k <comando>~~~ para buscar algum comando no manual.
+O linux possui um manual para quase tudo! Tá em dúvida do que um comando faz? Ou esqueceu como usar um programa? Leia o manual! Para isso é só executar 
+~~~
+	man <comando>
+~~~ 
+ou
+~~~
+	man -k <comando>
+~~~ 
+para buscar algum comando no manual.
 
 ## systemctl
 
