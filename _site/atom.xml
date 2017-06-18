@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Lincon Dias</title>
- <link href="http://lincond.github.io/atom.xml" rel="self"/>
- <link href="http://lincond.github.io/"/>
- <updated>2017-06-18T14:53:47-03:00</updated>
- <id>http://lincond.github.io</id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2017-06-18T15:41:34-03:00</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name>Lincon Dias</name>
    <email>lincon@emptybits.com.br</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Introdução a servidores</title>
-   <link href="http://lincond.github.io/2017/06/17/servidores/"/>
+   <link href="http://localhost:4000/2017/06/17/servidores/"/>
    <updated>2017-06-17T00:00:00-03:00</updated>
-   <id>http://lincond.github.io/2017/06/17/servidores</id>
+   <id>http://localhost:4000/2017/06/17/servidores</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;Em informática, um servidor é um software ou computador, com sistema de computação centralizada que fornece serviços a uma rede de computadores, chamada de cliente.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -68,7 +68,10 @@ A controlador de disco pode ser encontrada em &lt;strong&gt;Configurações &amp
 
 &lt;p&gt;O Vim(Vi iMproved) é um &lt;strong&gt;editor de textos&lt;/strong&gt; que &lt;strong&gt;não&lt;/strong&gt; requer modo gráfico, perfeito para utilizar em um sessão &lt;strong&gt;SSH&lt;/strong&gt;. Levando em conta que a maioria dos serviços rodando em servidores utilizam &lt;strong&gt;arquivos de configuração&lt;/strong&gt;, o vim é uma importante ferramenta que é utilizada junto ao SSH para configurar e subir serviços no servidor.&lt;/p&gt;
 
-&lt;p&gt;Para abrir um arquivo com o vim utilizamos o comando ~&lt;del&gt;vim arquivo&lt;/del&gt;~.&lt;/p&gt;
+&lt;p&gt;Para abrir um arquivo com o vim utilizamos o comando&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	vim arquivo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Os homens sem fé costumam utilizar o &lt;strong&gt;nano&lt;/strong&gt;, que também é uma opção.&lt;/p&gt;
 
@@ -76,11 +79,27 @@ A controlador de disco pode ser encontrada em &lt;strong&gt;Configurações &amp
 &lt;h2 id=&quot;navegando-pelo-sistema&quot;&gt;Navegando pelo sistema&lt;/h2&gt;
 &lt;h3 id=&quot;diretórios-e-arquivos&quot;&gt;Diretórios e arquivos&lt;/h3&gt;
 
-&lt;p&gt;Um dos comandos mais básicos que temos é o ~&lt;del&gt;ls&lt;/del&gt;~, que lista todos os arquivos e diretórios do caminho atual(que pode ser checado com ~&lt;del&gt;pwd&lt;/del&gt;~), porém, para visualizar os arquivos de um forma mais interessante utilizamos os argumentos &lt;strong&gt;-lah&lt;/strong&gt; que lista os arquivos em uma forma de lista, além de mostar o tamanho de uma forma visível, as permissões e o dono do arquivo(algo muito importante para os serviços funcionarem de forma correta) e também os arquivos ocultos(que começam com .) Então o comando fica:&lt;/p&gt;
+&lt;p&gt;Um dos comandos mais básicos que temos é o&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	ls 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;, que lista todos os arquivos e diretórios do caminho atual(que pode ser checado com&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	pwd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;), porém, para visualizar os arquivos de um forma mais interessante utilizamos os argumentos &lt;strong&gt;-lah&lt;/strong&gt; que lista os arquivos em uma forma de lista, além de mostar o tamanho de uma forma visível, as permissões e o dono do arquivo(algo muito importante para os serviços funcionarem de forma correta) e também os arquivos ocultos(que começam com .) Então o comando fica:&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	ls -lah
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;Para navegação dentro dos diretórios do servidor utilizamos o comando ~&lt;del&gt;cd nome_da_pasta&lt;/del&gt;~, lembrando que o caminho pode ser composto, exemplo, ~&lt;del&gt;cd /home/lincon/public_html&lt;/del&gt;~. Para autocompletar caminhos podemos utilizar a tecla &lt;strong&gt;TAB&lt;/strong&gt; enquanto digitamos parte do nome do diretório.&lt;/p&gt;
+&lt;p&gt;Para navegação dentro dos diretórios do servidor utilizamos o comando&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	cd nome_da_pasta
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;, lembrando que o caminho pode ser composto, exemplo,&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	cd /home/lincon/public_html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Para autocompletar caminhos podemos utilizar a tecla &lt;strong&gt;TAB&lt;/strong&gt; enquanto digitamos parte do nome do diretório.&lt;/p&gt;
 
 &lt;h3 id=&quot;pemissões-e-donos&quot;&gt;Pemissões e donos&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;NUNCA, NUNCA FAÇA ~&lt;del&gt;chmod 777 arquivo&lt;/del&gt;~!&lt;/strong&gt;&lt;/p&gt;
@@ -89,13 +108,29 @@ A controlador de disco pode ser encontrada em &lt;strong&gt;Configurações &amp
 
 &lt;p&gt;As permissões criam cenários para que todos os serviços executem somente onde precisam. Se tratando de um servidor onde ele possue pastas publicas(como por exemplo pastas com arquivos de um site), as permissões impede que arquivos indesejados executem no servidor.&lt;/p&gt;
 
-&lt;p&gt;Para mudar as permissões utilizamos o comando ~&lt;del&gt;chmod &lt;permissoes&gt; &lt;arquivo&gt;&lt;/arquivo&gt;&lt;/permissoes&gt;&lt;/del&gt;~, e para alterar o dono ~&lt;del&gt;chown &lt;usuario&gt;.&lt;grupo&gt; &lt;arquivo&gt;&lt;/arquivo&gt;&lt;/grupo&gt;&lt;/usuario&gt;&lt;/del&gt;~&lt;/p&gt;
+&lt;p&gt;Para mudar as permissões utilizamos o comando&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	chmod &amp;lt;permissoes&amp;gt; &amp;lt;arquivo&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;, e para alterar o dono&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	chown &amp;lt;usuario&amp;gt;.&amp;lt;grupo&amp;gt; &amp;lt;arquivo&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Para executar a troca de dono dos subdiretórios e arquivos utilize a opção recursiva: ** -R **.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;os-fundamentais&quot;&gt;Os fundamentais&lt;/h2&gt;
 &lt;h3 id=&quot;leia-a--do-manual&quot;&gt;Leia a *$#! do manual!&lt;/h3&gt;
 
-&lt;p&gt;O linux possui um manual para quase tudo! Tá em dúvida do que um comando faz? Ou esqueceu como usar um programa? Leia o manual! Para isso é só executar ~&lt;del&gt;man &lt;comando&gt;&lt;/comando&gt;&lt;/del&gt;~ ou man ~&lt;del&gt;man -k &lt;comando&gt;&lt;/comando&gt;&lt;/del&gt;~ para buscar algum comando no manual.&lt;/p&gt;
+&lt;p&gt;O linux possui um manual para quase tudo! Tá em dúvida do que um comando faz? Ou esqueceu como usar um programa? Leia o manual! Para isso é só executar&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	man &amp;lt;comando&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;ou&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	man -k &amp;lt;comando&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;para buscar algum comando no manual.&lt;/p&gt;
 
 &lt;h2 id=&quot;systemctl&quot;&gt;systemctl&lt;/h2&gt;
 
@@ -115,9 +150,9 @@ Os comandos básicos são:&lt;/p&gt;
  
  <entry>
    <title>Introducing Lanyon</title>
-   <link href="http://lincond.github.io/2014/01/02/introducing-lanyon/"/>
+   <link href="http://localhost:4000/2014/01/02/introducing-lanyon/"/>
    <updated>2014-01-02T00:00:00-02:00</updated>
-   <id>http://lincond.github.io/2014/01/02/introducing-lanyon</id>
+   <id>http://localhost:4000/2014/01/02/introducing-lanyon</id>
    <content type="html">&lt;p&gt;Lanyon is an unassuming &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; theme that places content first by tucking away navigation in a hidden drawer. It’s based on &lt;a href=&quot;http://getpoole.com&quot;&gt;Poole&lt;/a&gt;, the Jekyll butler.&lt;/p&gt;
 
 &lt;h3 id=&quot;built-on-poole&quot;&gt;Built on Poole&lt;/h3&gt;
@@ -160,9 +195,9 @@ Os comandos básicos são:&lt;/p&gt;
  
  <entry>
    <title>Example content</title>
-   <link href="http://lincond.github.io/2014/01/01/example-content/"/>
+   <link href="http://localhost:4000/2014/01/01/example-content/"/>
    <updated>2014-01-01T00:00:00-02:00</updated>
-   <id>http://lincond.github.io/2014/01/01/example-content</id>
+   <id>http://localhost:4000/2014/01/01/example-content</id>
    <content type="html">&lt;div class=&quot;message&quot;&gt;
   Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
 &lt;/div&gt;
@@ -293,9 +328,9 @@ Os comandos básicos são:&lt;/p&gt;
  
  <entry>
    <title>O que é Jekyll?</title>
-   <link href="http://lincond.github.io/2013/12/31/whats-jekyll/"/>
+   <link href="http://localhost:4000/2013/12/31/whats-jekyll/"/>
    <updated>2013-12-31T00:00:00-02:00</updated>
-   <id>http://lincond.github.io/2013/12/31/whats-jekyll</id>
+   <id>http://localhost:4000/2013/12/31/whats-jekyll</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; é um static site generator de código aberto para criação de poderosos websites de todos os tamanhos e medidas.&lt;/p&gt;
 
 &lt;blockquote&gt;

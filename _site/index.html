@@ -96,7 +96,7 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="//2017/06/17/servidores/">
+      <a href="/2017/06/17/servidores/">
         Introdução a servidores
       </a>
     </h1>
@@ -154,7 +154,10 @@ A controlador de disco pode ser encontrada em <strong>Configurações &gt; Armaz
 
 <p>O Vim(Vi iMproved) é um <strong>editor de textos</strong> que <strong>não</strong> requer modo gráfico, perfeito para utilizar em um sessão <strong>SSH</strong>. Levando em conta que a maioria dos serviços rodando em servidores utilizam <strong>arquivos de configuração</strong>, o vim é uma importante ferramenta que é utilizada junto ao SSH para configurar e subir serviços no servidor.</p>
 
-<p>Para abrir um arquivo com o vim utilizamos o comando ~<del>vim arquivo</del>~.</p>
+<p>Para abrir um arquivo com o vim utilizamos o comando</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	vim arquivo
+</code></pre>
+</div>
 
 <p>Os homens sem fé costumam utilizar o <strong>nano</strong>, que também é uma opção.</p>
 
@@ -162,11 +165,27 @@ A controlador de disco pode ser encontrada em <strong>Configurações &gt; Armaz
 <h2 id="navegando-pelo-sistema">Navegando pelo sistema</h2>
 <h3 id="diretórios-e-arquivos">Diretórios e arquivos</h3>
 
-<p>Um dos comandos mais básicos que temos é o ~<del>ls</del>~, que lista todos os arquivos e diretórios do caminho atual(que pode ser checado com ~<del>pwd</del>~), porém, para visualizar os arquivos de um forma mais interessante utilizamos os argumentos <strong>-lah</strong> que lista os arquivos em uma forma de lista, além de mostar o tamanho de uma forma visível, as permissões e o dono do arquivo(algo muito importante para os serviços funcionarem de forma correta) e também os arquivos ocultos(que começam com .) Então o comando fica:</p>
+<p>Um dos comandos mais básicos que temos é o</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	ls 
+</code></pre>
+</div>
+<p>, que lista todos os arquivos e diretórios do caminho atual(que pode ser checado com</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	pwd
+</code></pre>
+</div>
+<p>), porém, para visualizar os arquivos de um forma mais interessante utilizamos os argumentos <strong>-lah</strong> que lista os arquivos em uma forma de lista, além de mostar o tamanho de uma forma visível, as permissões e o dono do arquivo(algo muito importante para os serviços funcionarem de forma correta) e também os arquivos ocultos(que começam com .) Então o comando fica:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>	ls -lah
 </code></pre>
 </div>
-<p>Para navegação dentro dos diretórios do servidor utilizamos o comando ~<del>cd nome_da_pasta</del>~, lembrando que o caminho pode ser composto, exemplo, ~<del>cd /home/lincon/public_html</del>~. Para autocompletar caminhos podemos utilizar a tecla <strong>TAB</strong> enquanto digitamos parte do nome do diretório.</p>
+<p>Para navegação dentro dos diretórios do servidor utilizamos o comando</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	cd nome_da_pasta
+</code></pre>
+</div>
+<p>, lembrando que o caminho pode ser composto, exemplo,</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	cd /home/lincon/public_html
+</code></pre>
+</div>
+<p>Para autocompletar caminhos podemos utilizar a tecla <strong>TAB</strong> enquanto digitamos parte do nome do diretório.</p>
 
 <h3 id="pemissões-e-donos">Pemissões e donos</h3>
 <p><strong>NUNCA, NUNCA FAÇA ~<del>chmod 777 arquivo</del>~!</strong></p>
@@ -175,13 +194,29 @@ A controlador de disco pode ser encontrada em <strong>Configurações &gt; Armaz
 
 <p>As permissões criam cenários para que todos os serviços executem somente onde precisam. Se tratando de um servidor onde ele possue pastas publicas(como por exemplo pastas com arquivos de um site), as permissões impede que arquivos indesejados executem no servidor.</p>
 
-<p>Para mudar as permissões utilizamos o comando ~<del>chmod <permissoes> <arquivo></arquivo></permissoes></del>~, e para alterar o dono ~<del>chown <usuario>.<grupo> <arquivo></arquivo></grupo></usuario></del>~</p>
+<p>Para mudar as permissões utilizamos o comando</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	chmod &lt;permissoes&gt; &lt;arquivo&gt;
+</code></pre>
+</div>
+<p>, e para alterar o dono</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	chown &lt;usuario&gt;.&lt;grupo&gt; &lt;arquivo&gt;
+</code></pre>
+</div>
+<p>Para executar a troca de dono dos subdiretórios e arquivos utilize a opção recursiva: ** -R **.</p>
 
 <hr />
 <h2 id="os-fundamentais">Os fundamentais</h2>
 <h3 id="leia-a--do-manual">Leia a *$#! do manual!</h3>
 
-<p>O linux possui um manual para quase tudo! Tá em dúvida do que um comando faz? Ou esqueceu como usar um programa? Leia o manual! Para isso é só executar ~<del>man <comando></comando></del>~ ou man ~<del>man -k <comando></comando></del>~ para buscar algum comando no manual.</p>
+<p>O linux possui um manual para quase tudo! Tá em dúvida do que um comando faz? Ou esqueceu como usar um programa? Leia o manual! Para isso é só executar</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	man &lt;comando&gt;
+</code></pre>
+</div>
+<p>ou</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	man -k &lt;comando&gt;
+</code></pre>
+</div>
+<p>para buscar algum comando no manual.</p>
 
 <h2 id="systemctl">systemctl</h2>
 
@@ -201,7 +236,7 @@ Os comandos básicos são:</p>
   
   <div class="post">
     <h1 class="post-title">
-      <a href="//2014/01/02/introducing-lanyon/">
+      <a href="/2014/01/02/introducing-lanyon/">
         Introducing Lanyon
       </a>
     </h1>
@@ -250,7 +285,7 @@ Os comandos básicos são:</p>
   
   <div class="post">
     <h1 class="post-title">
-      <a href="//2014/01/01/example-content/">
+      <a href="/2014/01/01/example-content/">
         Example content
       </a>
     </h1>
@@ -387,7 +422,7 @@ Os comandos básicos são:</p>
   
   <div class="post">
     <h1 class="post-title">
-      <a href="//2013/12/31/whats-jekyll/">
+      <a href="/2013/12/31/whats-jekyll/">
         O que é Jekyll?
       </a>
     </h1>
