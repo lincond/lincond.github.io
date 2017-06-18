@@ -11,7 +11,7 @@
 
   <title>
     
-      Lanyon &middot; A Jekyll theme
+      Lincon Dias &middot; Salvando a vida do full-stack(overflow)
     
   </title>
 
@@ -39,7 +39,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.</p>
+    <p>Fundador da <a href="http://emptybits.com.br" target="_blank">EmptyBits</a>, colaborador na <a href="http://level5jr.com.br" target="_blank">Level5</a> e estudante de sistemas de informação na Universidade Federal de Goiás.</p>
   </div>
 
   <nav class="sidebar-nav">
@@ -85,8 +85,8 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="/" title="Home">Lanyon</a>
-            <small>A Jekyll theme</small>
+            <a href="/" title="Home">Lincon Dias</a>
+            <small>Salvando a vida do full-stack(overflow)</small>
           </h3>
         </div>
       </div>
@@ -97,22 +97,21 @@
   <div class="post">
     <h1 class="post-title">
       <a href="//2017/06/17/servidores/">
-        Servidores
+        Introdução a servidores
       </a>
     </h1>
 
     <span class="post-date">17 Jun 2017</span>
 
-    <h1 id="servidores">Servidores</h1>
-<h6 id="por-lincon-dias">por Lincon Dias.</h6>
-<blockquote>
+    <blockquote>
   <p>Em informática, um servidor é um software ou computador, com sistema de computação centralizada que fornece serviços a uma rede de computadores, chamada de cliente.</p>
 </blockquote>
 
-<h6 id="wikipedia"><a href="https://pt.wikipedia.org/wiki/VirtualBox">Wikipedia</a></h6>
+<p><a href="https://pt.wikipedia.org/wiki/VirtualBox">Wikipedia</a></p>
+
+<p>Nesse artigo iremos abordar o básico para a manutenção de serviços rodando em um servidor Ubuntu, mostrando desde a navegação pelos diretórios do servidor, permissões, gerenciador de serviços até configuração de hosts virtuais do <a href="https://pt.wikipedia.org/wiki/Servidor_Apache">Apache</a>.</p>
 
 <hr />
-
 <h2 id="preparando-a-o-ambiente">Preparando a o ambiente</h2>
 
 <h3 id="instalando-o-virtualbox">Instalando o VirtualBox</h3>
@@ -120,14 +119,14 @@
   <p>VirtualBox é um software de virtualização que visa criar ambientes para instalação de sistemas distintos. Ele permite a instalação e utilização de um sistema operacional dentro de outro, assim como seus respectivos softwares, como dois ou mais computadores independentes, mas compartilhando fisicamente o mesmo hardware.</p>
 </blockquote>
 
-<h6 id="wikipedia-1"><a href="https://pt.wikipedia.org/wiki/VirtualBox">Wikipedia</a></h6>
+<p><a href="https://pt.wikipedia.org/wiki/VirtualBox">Wikipedia</a></p>
 
-<p>Vamos utilizar o virtualbox para simular os nossos serviços rodando em um servidor, para isso baixe o versão para o seu sistema nesse
-<a href="https://www.virtualbox.org/wiki/Downloads">link</a>.</p>
+<p>Utilizaremos o virtualbox para simular serviços rodando em um servidor, para isso baixe o versão para o seu sistema nesse <a href="https://www.virtualbox.org/wiki/Downloads">link</a> e siga os passos do programa para instalar em sua máquina.</p>
 
 <h3 id="instalando-o-ubuntu">Instalando o Ubuntu</h3>
-<p>O Ubuntu fornece uma distro focada em servidores que pode ser baixada <a href="https://www.ubuntu.com/download/server">aqui</a>.
-Depois de baixar é preciso criar uma nova máquina virtual no VBox e adicionar a imagem (.img) na controladora de disco e seguir as intruções para a instalação no disco rígido virtual.</p>
+<p>O Ubuntu fornece uma distro focada em servidores que pode ser baixada <a href="https://www.ubuntu.com/download/server">nesse link</a>.
+Depois de baixar é preciso criar uma nova máquina virtual no VBox e adicionar a imagem (.img) na controladora de disco e seguir as intruções para a instalação do sistema no disco rígido virtual.
+A controlador de disco pode ser encontrada em <strong>Configurações &gt; Armazenamento &gt; Controladora: IDE</strong></p>
 
 <hr />
 <h2 id="conhecendo-um-pouco-das-ferramentas">Conhecendo um pouco das ferramentas</h2>
@@ -137,25 +136,25 @@ Depois de baixar é preciso criar uma nova máquina virtual no VBox e adicionar 
   <p>Secure Shell (SSH) é um protocolo de rede criptográfico para operação de serviços de rede de forma segura sobre uma rede insegura.[1] A <strong>melhor aplicação</strong> de exemplo conhecida é para <strong>login remoto a sistemas de computadores</strong> pelos usuários.</p>
 </blockquote>
 
-<h6 id="wikipedia-2"><a href="https://pt.wikipedia.org/wiki/Secure_Shell">Wikipedia</a></h6>
+<p><a href="https://pt.wikipedia.org/wiki/Secure_Shell">Wikipedia</a></p>
 
-<p>O SSH permite o acesso remoto a shell do servidor e através dela instalamos novos serviços, atualizamos e damos manutenção na máquina. Ele é a nossa principal ferramenta.</p>
+<p>O <strong>SSH</strong> permite o <strong>acesso remoto</strong> a shell do servidor e através dela instalamos novos serviços, atualizamos e damos manutenção na máquina. Ele é a nossa principal ferramenta.</p>
 
 <p>Para conectar no ssh do nosso servidor podemos executar o comando</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>	ssh -p &lt;porta&gt; &lt;usuario&gt;@&lt;dominio&gt;
-```. 
-Exemplo,
 </code></pre>
 </div>
-<div class="highlighter-rouge"><pre class="highlight"><code>ssh -p 22 lincon@level5jr.com.br ``` Lembrando que **não** é necessario acrescentar o __-p__ se a porta for a **padrão(22)**, mas como somos pessoas sensatas, não utilizamos a porta padrão por questões de segurança.
+<p>Exemplo,</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>	ssh -p 22 lincon@level5jr.com.br
 </code></pre>
 </div>
+<p>Lembrando que <strong>não</strong> é necessario acrescentar o <strong>-p</strong> se a porta for a <strong>padrão(22)</strong>, mas como somos pessoas sensatas, não utilizamos a porta padrão por questões de segurança.</p>
 
 <h3 id="vim-o-editor-para-hipsters">Vim, o editor para hipsters</h3>
 
 <p>O Vim(Vi iMproved) é um <strong>editor de textos</strong> que <strong>não</strong> requer modo gráfico, perfeito para utilizar em um sessão <strong>SSH</strong>. Levando em conta que a maioria dos serviços rodando em servidores utilizam <strong>arquivos de configuração</strong>, o vim é uma importante ferramenta que é utilizada junto ao SSH para configurar e subir serviços no servidor.</p>
 
-<p>Para abrir um arquivo com o vim utilizamos o comando <code class="highlighter-rouge">vim arquivo</code>.</p>
+<p>Para abrir um arquivo com o vim utilizamos o comando ~<del>vim arquivo</del>~.</p>
 
 <p>Os homens sem fé costumam utilizar o <strong>nano</strong>, que também é uma opção.</p>
 
@@ -163,26 +162,26 @@ Exemplo,
 <h2 id="navegando-pelo-sistema">Navegando pelo sistema</h2>
 <h3 id="diretórios-e-arquivos">Diretórios e arquivos</h3>
 
-<p>Um dos comandos mais básicos que temos é o <code class="highlighter-rouge">ls</code>, que lista todos os arquivos e diretórios do caminho atual(que pode ser checado com <code class="highlighter-rouge">pwd</code>), porém, para visualizar os arquivos de um forma mais interessante utilizamos os argumentos <strong>-lah</strong> que lista os arquivos em uma forma de lista, além de mostar o tamanho de uma forma visível, as permissões e o dono do arquivo(algo muito importante para os serviços funcionarem de forma correta) e também os arquivos ocultos(que começam com .) Então o comando fica:</p>
+<p>Um dos comandos mais básicos que temos é o ~<del>ls</del>~, que lista todos os arquivos e diretórios do caminho atual(que pode ser checado com ~<del>pwd</del>~), porém, para visualizar os arquivos de um forma mais interessante utilizamos os argumentos <strong>-lah</strong> que lista os arquivos em uma forma de lista, além de mostar o tamanho de uma forma visível, as permissões e o dono do arquivo(algo muito importante para os serviços funcionarem de forma correta) e também os arquivos ocultos(que começam com .) Então o comando fica:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>	ls -lah
 </code></pre>
 </div>
-<p>Para navegação dentro dos diretórios do servidor utilizamos o comando <code class="highlighter-rouge">cd nome_da_pasta</code>, lembrando que o caminho pode ser composto, exemplo, <code class="highlighter-rouge">cd /home/lincon/public_html</code>. Para autocompletar caminhos podemos utilizar a tecla <strong>TAB</strong> enquanto digitamos parte do nome do diretório.</p>
+<p>Para navegação dentro dos diretórios do servidor utilizamos o comando ~<del>cd nome_da_pasta</del>~, lembrando que o caminho pode ser composto, exemplo, ~<del>cd /home/lincon/public_html</del>~. Para autocompletar caminhos podemos utilizar a tecla <strong>TAB</strong> enquanto digitamos parte do nome do diretório.</p>
 
 <h3 id="pemissões-e-donos">Pemissões e donos</h3>
-<p><strong>NUNCA, NUNCA FAÇA <code class="highlighter-rouge">chmod 777 arquivo</code>!</strong></p>
+<p><strong>NUNCA, NUNCA FAÇA ~<del>chmod 777 arquivo</del>~!</strong></p>
 
 <p><img src="http://photos1.blogger.com/blogger/862/3613/1600/perm.png" alt="Permissões" /></p>
 
 <p>As permissões criam cenários para que todos os serviços executem somente onde precisam. Se tratando de um servidor onde ele possue pastas publicas(como por exemplo pastas com arquivos de um site), as permissões impede que arquivos indesejados executem no servidor.</p>
 
-<p>Para mudar as permissões utilizamos o comando <code class="highlighter-rouge">chmod &lt;permissoes&gt; &lt;arquivo&gt;</code>, e para alterar o dono <code class="highlighter-rouge">chown &lt;usuario&gt;.&lt;grupo&gt; &lt;arquivo&gt;</code></p>
+<p>Para mudar as permissões utilizamos o comando ~<del>chmod <permissoes> <arquivo></arquivo></permissoes></del>~, e para alterar o dono ~<del>chown <usuario>.<grupo> <arquivo></arquivo></grupo></usuario></del>~</p>
 
 <hr />
 <h2 id="os-fundamentais">Os fundamentais</h2>
 <h3 id="leia-a--do-manual">Leia a *$#! do manual!</h3>
 
-<p>O linux possui um manual para quase tudo! Tá em dúvida do que um comando faz? Ou esqueceu como usar um programa? Leia o manual! Para isso é só executar <code class="highlighter-rouge">man &lt;comando&gt;</code> ou man <code class="highlighter-rouge">man -k &lt;comando&gt;</code> para buscar algum comando no manual.</p>
+<p>O linux possui um manual para quase tudo! Tá em dúvida do que um comando faz? Ou esqueceu como usar um programa? Leia o manual! Para isso é só executar ~<del>man <comando></comando></del>~ ou man ~<del>man -k <comando></comando></del>~ para buscar algum comando no manual.</p>
 
 <h2 id="systemctl">systemctl</h2>
 
@@ -389,21 +388,24 @@ Os comandos básicos são:</p>
   <div class="post">
     <h1 class="post-title">
       <a href="//2013/12/31/whats-jekyll/">
-        What's Jekyll?
+        O que é Jekyll?
       </a>
     </h1>
 
     <span class="post-date">31 Dec 2013</span>
 
-    <p><a href="http://jekyllrb.com">Jekyll</a> is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From <a href="https://github.com/mojombo/jekyll/blob/master/README.markdown">the project’s readme</a>:</p>
+    <p><a href="http://jekyllrb.com">Jekyll</a> é um static site generator de código aberto para criação de poderosos websites de todos os tamanhos e medidas.</p>
 
 <blockquote>
-  <p>Jekyll is a simple, blog aware, static site generator. It takes a template directory […] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.</p>
+  <p>Jekyll é um simples, blog aware, static site generator. Ele pega um diretório de templates[…] e o transforma em um website estático e completo, pronto para servir com o Apache ou o seu webserver favorito. Ele também está por trás do Github Pages, onde você pode hospedar a página do seu projeto ou um blog, diretamento do Github.</p>
 </blockquote>
 
-<p>It’s an immensely useful tool and one we encourage you to use here with Lanyon.</p>
+<p>Saiba mais <a href="https://github.com/mojombo/jekyll">visitando o projeto no GitHub</a>.</p>
 
-<p>Find out more by <a href="https://github.com/mojombo/jekyll">visiting the project on GitHub</a>.</p>
+<hr />
+<h3 id="por-que-escolhi-usar-o-jekyll">Por que escolhi usar o Jekyll?</h3>
+
+<p>Fui convocado para dar alguns minicursos para o pessoal da <a href="http://level5jr.com.br">Level5</a>, então sentei para preparar algum material (que futuramente penso em publicar aqui) e pensei qual seria minha estratégia de apresentação: Markdowns! Após um bom tempo escrevendo markdowns e pensando onde eu poderia postar isso, encontrei o jekyll, que funcionaria perfeitamente para o meu caso, transformando todos aqueles markdowns em belos posts para esse blog, sem muita configuração, senhas e usuários.</p>
 
   </div>
   
